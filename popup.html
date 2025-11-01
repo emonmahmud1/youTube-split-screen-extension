@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <style>
+    body {
+      width: 300px;
+      padding: 20px;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
+      background: #f9f9f9;
+    }
+    
+    .header {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    
+    h1 {
+      font-size: 18px;
+      margin: 0 0 10px 0;
+      color: #333;
+    }
+    
+    .description {
+      font-size: 13px;
+      color: #666;
+      line-height: 1.5;
+      margin-bottom: 20px;
+    }
+    
+    .toggle-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: white;
+      padding: 15px;
+      border-radius: 8px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+      margin-bottom: 15px;
+    }
+    
+    .toggle-label {
+      font-size: 14px;
+      color: #333;
+      font-weight: 500;
+    }
+    
+    .switch {
+      position: relative;
+      display: inline-block;
+      width: 50px;
+      height: 24px;
+    }
+    
+    .switch input {
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+    
+    .slider {
+      position: absolute;
+      cursor: pointer;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: #ccc;
+      transition: .3s;
+      border-radius: 24px;
+    }
+    
+    .slider:before {
+      position: absolute;
+      content: "";
+      height: 18px;
+      width: 18px;
+      left: 3px;
+      bottom: 3px;
+      background-color: white;
+      transition: .3s;
+      border-radius: 50%;
+    }
+    
+    input:checked + .slider {
+      background-color: #ff0000;
+    }
+    
+    input:checked + .slider:before {
+      transform: translateX(26px);
+    }
+    
+    .info {
+      background: white;
+      padding: 15px;
+      border-radius: 8px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    }
+    
+    .info-title {
+      font-size: 13px;
+      font-weight: 600;
+      color: #333;
+      margin-bottom: 8px;
+    }
+    
+    .info-text {
+      font-size: 12px;
+      color: #666;
+      line-height: 1.5;
+    }
+    
+    .info-text li {
+      margin-bottom: 5px;
+    }
+    
+    .status {
+      text-align: center;
+      padding: 8px;
+      border-radius: 4px;
+      font-size: 12px;
+      margin-bottom: 15px;
+    }
+    
+    .status.enabled {
+      background: #e7f5e7;
+      color: #2d5f2d;
+    }
+    
+    .status.disabled {
+      background: #ffeaea;
+      color: #8b3434;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <h1>🎬 YouTube Split Screen</h1>
+    <p class="description">Video on left, content on right!</p>
+  </div>
+  
+  <div id="status" class="status"></div>
+  
+  <div class="toggle-container">
+    <span class="toggle-label">Enable Split Screen</span>
+    <label class="switch">
+      <input type="checkbox" id="toggleSwitch" checked>
+      <span class="slider"></span>
+    </label>
+  </div>
+  
+  <div class="info">
+    <div class="info-title">✨ Features:</div>
+    <ul class="info-text">
+      <li>Video player stays fixed on the left (70%)</li>
+      <li>Related videos & comments scroll on the right (30%)</li>
+      <li>Works on all YouTube watch pages</li>
+      <li>Toggle on/off anytime</li>
+    </ul>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>

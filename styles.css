@@ -1,0 +1,66 @@
+/* YouTube Split Screen Extension */
+
+body.yt-split-screen-enabled {
+  overflow-x: hidden;
+}
+
+.yt-split-container {
+  display: flex;
+  width: 100%;
+  min-height: 100vh;
+}
+
+.yt-split-left {
+  width: 70%;
+  padding: 20px;
+}
+
+.yt-split-left.fixed {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  overflow-y: auto;
+  z-index: 2000;
+}
+
+.yt-split-right {
+  width: 30%;
+  padding: 10px;
+  margin-left: auto;
+}
+
+body.yt-split-screen-enabled .yt-split-left.fixed ~ .yt-split-right {
+  margin-left: 70%;
+}
+
+.yt-split-left #primary {
+  max-width: 100% !important;
+}
+
+.yt-split-right #secondary {
+  width: 100% !important;
+}
+
+.yt-split-left::-webkit-scrollbar,
+.yt-split-right::-webkit-scrollbar {
+  width: 8px;
+}
+
+.yt-split-left::-webkit-scrollbar-thumb,
+.yt-split-right::-webkit-scrollbar-thumb {
+  background: #909090;
+  border-radius: 4px;
+}
+
+@media (max-width: 1280px) {
+  .yt-split-left { width: 65%; }
+  .yt-split-right { width: 35%; }
+  body.yt-split-screen-enabled .yt-split-left.fixed ~ .yt-split-right { margin-left: 65%; }
+}
+
+@media (max-width: 1024px) {
+  .yt-split-left { width: 60%; }
+  .yt-split-right { width: 40%; }
+  body.yt-split-screen-enabled .yt-split-left.fixed ~ .yt-split-right { margin-left: 60%; }
+}

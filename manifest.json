@@ -1,0 +1,23 @@
+{
+  "manifest_version": 3,
+  "name": "YouTube Split Screen",
+  "version": "1.0",
+  "description": "Split YouTube into fixed video player (left) and scrollable content (right)",
+  "permissions": [
+    "storage",
+    "activeTab"
+  ],
+  "content_scripts": [
+    {
+      "matches": [
+        "*://*.youtube.com/*"
+      ],
+      "js": ["content.js"],
+      "css": ["styles.css"],
+      "run_at": "document_end"
+    }
+  ],
+  "action": {
+    "default_popup": "popup.html"
+  }
+}
